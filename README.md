@@ -1,9 +1,12 @@
-This repo heavily refers to https://github.com/acmesh-official/acme.sh and 
-https://github.com/nginx-proxy/acme-companion to issue certs using letsencrypt.
+Address: https://github.com/getfundwave/nginx-acme/pkgs/container/nginx-acme
+
+Description: This repo heavily refers to https://github.com/acmesh-official/acme.sh and https://github.com/nginx-proxy/acme-companion to issue certs using letsencrypt.
 
 Unlike nginx-proxy/acme-companion, this repo doesn't require docker.sock. Instead the getfundwave/nginx-proxy server listens to changes in certs using inotifywait.
 
-Sample docker-compose:
+Sample:
+
+docker-compose:
 
 ```
   nginx:

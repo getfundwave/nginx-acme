@@ -1,4 +1,4 @@
-FROM neilpang/acme.sh
+FROM --platform=linux/amd64 neilpang/acme.sh
 
 COPY ./dhparams.pem /etc/nginx/certs/dhparams.pem 
 

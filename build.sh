@@ -1,0 +1,1 @@
+docker build -t ghcr.io/getfundwave/nginx-acme:$1 .

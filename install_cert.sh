@@ -25,8 +25,9 @@ function create_cert {
         acme.sh --install-cert "${params_install_arr[@]}"
     fi    
 
-    if [[ ! -f /etc/nginx/certs/ssl_certificate.key && ! -f /etc/nginx/certs/ssl_certificate.key ]]
+    if [[ ! -f /etc/nginx/certs/ssl_certificate.key || ! -f /etc/nginx/certs/ssl_certificate.crt ]]
     then
+        rm /etc/nginx/conf.d/ssl.conf # nginx will not start otherwise, as ssl.conf mentions these two files. Maybe we use replace with a different ssl-dev.conf instead.
         acme.sh --register-account -m $ACME_EMAIL
         acme.sh --issue  "${params_issue_arr[@]}" && \
         acme.sh --install-cert "${params_install_arr[@]}" 
