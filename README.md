@@ -11,7 +11,7 @@ docker-compose:
 ```
   nginx:
     container_name: nginx
-    image: getfundwave/nginx-proxy
+    image: ghcr.io/getfundwave/nginx-proxy:alpine
     ports:
       - "80:80"
       - "443:443"
@@ -28,7 +28,7 @@ docker-compose:
 
   acme:
     container_name: acme
-    image: getfundwave/nginx-acme
+    image: ghcr.io/getfundwave/nginx-acme:alpine
     depends_on:
       - "nginx"
     volumes:
@@ -36,7 +36,7 @@ docker-compose:
       - nginxconf:/etc/nginx/conf.d
       - nginxhtml:/usr/share/nginx/html:rw
     environment:
-      - VIRTUAL_HOST=${HOST}      
+      - VIRTUAL_HOST=${HOST}
       - ACME_EMAIL=admin@<your-domain>
     restart: always
 
